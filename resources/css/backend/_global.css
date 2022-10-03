@@ -1,0 +1,37 @@
+html {
+    body {
+        @apply font-sans text-sm antialiased;
+    }
+    main {
+        @apply h-full px-6 py-5;
+    }
+}
+
+.content {
+    @apply flex flex-col justify-between flex-1 w-full min-w-0 overflow-hidden bg-slate-100 text-slate-900;
+}
+
+a {
+    @apply focus:outline-none;
+}
+
+.table {
+    @apply flex flex-col overflow-hidden overflow-x-auto border shadow-sm rounded-t-md border-primary/30;
+}
+
+.table-pagination {
+    @apply px-4 py-2 border border-t-0 shadow-sm border-primary/30 rounded-b-md bg-secondary/10;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 155, 7, 0.8) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 155, 7, 1) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    -webkit-box-shadow: inset 0 0 6px rgba(191, 116, 5, 1) !important;
+}

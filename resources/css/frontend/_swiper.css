@@ -1,0 +1,15 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+.swiper-pagination-bullet-active {
+    @apply  !bg-primary/80;
+}
+
+.swiper-button-prev {
+    @apply  !text-primary/80;
+}
+
+.swiper-button-next {
+    @apply  !text-primary/80;
+}

@@ -1,0 +1,46 @@
+.mobile-menu {
+    @apply border-b border-white/[0.08] px-3 pt-3;
+    .mobile-menu-bar {
+        @apply flex items-center h-10 mb-3;
+    }
+    ul {
+        &.menu-sub-open {
+            @apply block;
+        }
+        li {
+            max-width: 1280px;
+            @apply w-full mx-auto;
+            ul {
+                @apply hidden mx-6 my-1 rounded-md bg-black/10 dark:bg-darkmode-700;
+                @include media-breakpoint-down(sm) {
+                    @apply mx-3;
+                }
+                .menu {
+                    @apply px-4;
+                }
+                ul {
+                    @apply hidden mx-0 rounded-md bg-black/10 dark:bg-darkmode-600;
+                }
+            }
+        }
+    }
+    .menu-devider {
+        @apply w-full h-px bg-white/[0.08] relative;
+    }
+    .menu {
+        height: 50px;
+        @apply flex items-center px-5 text-white;
+        @include media-breakpoint-down(sm) {
+            @apply px-3;
+        }
+        .menu-title {
+            @apply flex items-center w-full ml-3;
+            .menu-sub-icon {
+                @apply ml-auto transition duration-100 ease-in;
+                svg {
+                    @apply w-5 h-5;
+                }
+            }
+        }
+    }
+}

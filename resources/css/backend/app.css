@@ -1,0 +1,22 @@
+@import "../_tailwind.css";
+@import "../backend/_colors.css";
+@import "./_form.css";
+
+@import "tippy.js/dist/tippy.css";
+@import "tippy.js/themes/light.css";
+@import "tippy.js/dist/svg-arrow.css";
+@import "tippy.js/animations/shift-away.css";
+
+@import "./_print.css";
+@import "./_media.css";
+@import "./_global.css";
+@import "./_transition.css";
+@import "./_topbar.css";
+@import "./_breadcrumb.css";
+@import "./_dropdown.css";
+@import "./_sidebar.css";
+@import "./_mobile-menu.css";
+@import "./_tippy.css";
+@import "./_crud.css";
+@import "./_ckeditor.css";
+@import "./_file-manager.css";

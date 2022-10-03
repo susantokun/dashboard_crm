@@ -1,0 +1,7 @@
+@import "../_tailwind.css";
+@import "../frontend/_colors.css";
+
+@import "./_global.css";
+@import "./_swiper.css";
+@import "./_crud.css";
+@import "./_map.css";

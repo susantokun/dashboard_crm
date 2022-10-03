@@ -1,0 +1,36 @@
+:target {
+    scroll-margin-top: 56px;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    body {
+        @apply font-sans text-sm antialiased text-gray-800 bg-slate-50;
+    }
+}
+
+.table {
+    @apply flex flex-col overflow-hidden overflow-x-auto border shadow-sm rounded-t-md border-primary/30;
+}
+
+.table-pagination {
+    @apply px-4 py-2 border border-t-0 shadow-sm border-primary/30 rounded-b-md bg-secondary/10;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}

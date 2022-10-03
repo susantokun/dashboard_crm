@@ -1,0 +1,10 @@
+.topbar {
+    @apply h-[70px] relative z-10 flex justify-between items-center px-6 bg-white border-b border-l select-none border-slate-200 print:hidden;
+}
+
+.topbar-menu.active {
+    @apply bg-primary/90 hover:bg-primary/80;
+    .topbar-menu-icon {
+        @apply text-white;
+    }
+}
