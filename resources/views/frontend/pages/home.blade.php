@@ -12,9 +12,6 @@
             </div>
 
             <div class="inline-flex w-full gap-2">
-                {{-- <x-input id="tanggal" class="block w-full" placeholder="Tanggal" type="text" id="tanggal"
-                             name="tanggal" :value="old('tanggal')" required autofocus /> --}}
-
                 <select name="period" id="period" autofocus
                         class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary/30 focus:ring focus:ring-primary/10 focus:ring-opacity-50">
                     <option value="001">{{ __('Last 7 Days') }}</option>
