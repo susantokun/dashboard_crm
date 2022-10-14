@@ -22,7 +22,8 @@ class Q_sorbController extends Controller
         $query = Q_sorb::query()->whereKdPrsh();
 
         $query->when($search, function ($query) use ($search) {
-            $query->where('kd_bill', "%{$search}%");
+            $query->where('kd_bill', 'like', '%' . $search . '%')
+                ->orWhere('tx_bill', 'like', '%' . $search . '%');
         });
 
         if ($request->has(['field', 'direction'])) {
@@ -43,6 +44,8 @@ class Q_sorbController extends Controller
                 'nl_bill',
                 'tx_kurs',
             );
+
+        $query->filter($request);
 
         $billings = $query->paginate($per_page)->withQueryString();
         return view('backend.pages.billings.table', [

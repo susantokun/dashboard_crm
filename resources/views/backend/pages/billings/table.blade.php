@@ -15,14 +15,15 @@
         <div class="flex items-center justify-center gap-2 md:justify-start">
             <x-button-excel disabled>{{ __('Download') }}</x-button-excel>
         </div>
-        <div class="flex flex-col items-center gap-2 md:flex-row">
-            <form class="w-full ml-auto md:w-auto">
+        <div class="flex flex-col items-center justify-center gap-2 md:flex-row">
+            <form class="inline-flex items-center ml-auto md:w-auto">
                 <input type="search" name="search" placeholder="{{ __('Name') }}" value="{{ request()->search }}"
-                       class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                       class="w-full h-10 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 md:h-11">
             </form>
-            <div class="inline-flex items-center gap-2">
+
+            <div class="inline-flex items-center">
                 <select name="per_page" id="per_page" value="{{ request()->per_page }}"
-                        class="w-20 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        class="w-20 h-10 border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 md:h-11">
                     <option {{ request()->per_page == 5 ? 'selected' : '' }} value="5">5</option>
                     <option {{ (isset(request()->per_page) ? request()->per_page == 10 : 'selected') ? 'selected' : '' }}
                             value="10">10</option>
@@ -30,6 +31,22 @@
                     <option {{ request()->per_page == 100 ? 'selected' : '' }} value="100">100</option>
                 </select>
             </div>
+
+            <x-button-secondary id="buttonFilter">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 -mx-1" width="24" height="24"
+                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5"></path>
+                </svg>
+            </x-button-secondary>
+
+        </div>
+    </div>
+
+    <div id="divFilter" class="hidden">
+        <div class="p-4 mt-4 border rounded-md">
+            filter
         </div>
     </div>
 
@@ -46,7 +63,7 @@
                         </th>
                         <th
                             class="px-4 py-1 text-base font-semibold text-left text-gray-800 border border-secondary bg-secondary">
-                            {{ __('Kode') }}
+                            @sortablelink('kd_bill', __('Kode'))
                         </th>
                         <th
                             class="px-4 py-1 text-base font-semibold text-left text-gray-800 border border-secondary bg-secondary">
@@ -128,6 +145,9 @@
     </div>
 
     @push('scripts')
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
         <script>
             $("#per_page").change(function(e) {
                 let value = e.target.value;
@@ -137,6 +157,18 @@
                 url.searchParams.set('per_page', value);
                 window.location.href = url;
             });
+
+            $('#buttonFilter').on('click', function() {
+                const divFilter = document.getElementById('divFilter');
+                const isHidden = divFilter.classList.contains('hidden');
+                if (isHidden) {
+                    divFilter.classList.remove('hidden')
+                    divFilter.classList.add('block')
+                } else {
+                    divFilter.classList.remove('block')
+                    divFilter.classList.add('hidden')
+                }
+            })
         </script>
     @endpush
 </x-backend-layout>
